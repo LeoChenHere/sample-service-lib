@@ -19,7 +19,6 @@ publishing {
     repositories {
         maven {
             name 'nexus'
-//            url 'http://[your nexus ip]:[your nexus port]/repository/maven-releases/'
             url 'http://192.168.2.200:9081/repository/servicelib/'
             credentials {
                 username project.repoUser
