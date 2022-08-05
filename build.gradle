@@ -2,11 +2,33 @@ plugins {
     id 'org.springframework.boot' version '2.6.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'maven-publish'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'org.sampleservice.lib'
+version '0.0.1.0.1'
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact("build/libs/${project.name}-${project.version}"+".jar") {
+                extension "jar"
+            }
+        }
+    }
+    repositories {
+        maven {
+            name 'nexus'
+//            url 'http://[your nexus ip]:[your nexus port]/repository/maven-releases/'
+            url 'http://192.168.2.200:9081/repository/servicelib/'
+            credentials {
+                username project.repoUser
+                password project.repoPassword
+            }
+            allowInsecureProtocol = true
+        }
+    }
+}
 repositories {
     mavenCentral()
 }
