@@ -49,7 +49,7 @@ public class ReturnCode<T> implements Serializable {
   public static final ReturnCode SUCCESS = new ReturnCode(0, "Success");
 
   /**
-   * 1000系列 入参数据错误相关响应
+   * 1000系列 数据错误相关响应
    */
   public static final ReturnCode ERR_DATA = new ReturnCode(1000, "Data Error");
   public static final ReturnCode ERR_PARAM = new ReturnCode(1100, "Request param Error");
