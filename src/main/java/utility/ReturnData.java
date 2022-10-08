@@ -16,7 +16,7 @@ public class ReturnData {
     //- return result
     HashMap hm = new HashMap();
     hm.put(RETURN_CODE, rc.getCode());
-    hm.put(RETURN_MESSAGE, rc);
+    hm.put(RETURN_MESSAGE, rc.getMsg());
     return hm;
     //-
   }
