@@ -17,7 +17,7 @@ publishing {
     repositories {
         maven {
             name 'nexus'
-            url "$project.repotUrl"+"$project.servicelibPath"
+            url "$project.repoUrl"+"$project.servicelibPath"
             credentials {
                 username project.repoUser
                 password project.repoPassword
@@ -27,6 +27,15 @@ publishing {
     }
 }
 repositories {
+    maven {
+        name 'nexus'
+        url "$project.repoUrl"+"$project.servicelibPath"
+        credentials {
+            username project.repoUser
+            password project.repoPassword
+        }
+        allowInsecureProtocol = true
+    }
     mavenCentral()
 }
 
