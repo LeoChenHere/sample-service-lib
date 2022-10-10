@@ -7,29 +7,29 @@ import static utility.ReturnData.ReturnProp.*;
 public class ReturnData {
 
   enum ReturnProp{
-    RETURN_CODE,
-    RETURN_MESSAGE,
-    RETURN_DATA;
+    code,
+    msg,
+    data;
   }
 
   public static HashMap returnData(ReturnCode rc){
     //- return result
     HashMap hm = new HashMap();
-    hm.put(RETURN_CODE, rc.getCode());
-    hm.put(RETURN_MESSAGE, rc.getMsg());
+    hm.put(ReturnProp.code, rc.getCode());
+    hm.put(ReturnProp.msg, rc.getMsg());
     return hm;
     //-
   }
   public static HashMap returnData(ReturnCode rc, Object data){
     //- return result
     HashMap hm	 = new HashMap();
-    hm.put(RETURN_CODE, rc.getCode());
-    hm.put(RETURN_MESSAGE, rc);
-    System.out.print(data.getClass().getSimpleName());
+    hm.put(ReturnProp.code, rc.getCode());
+    hm.put(ReturnProp.msg, rc.getMsg());
+//    System.out.print(data.getClass().getSimpleName());
     if("String".equals(data.getClass().getSimpleName())){
-      hm.put(RETURN_DATA, data);
+      hm.put(ReturnProp.data, data);
     }else{
-      hm.put(RETURN_DATA, data);
+      hm.put(ReturnProp.data, data);
     }
     return hm;
     //-
